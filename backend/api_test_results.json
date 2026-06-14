@@ -1,0 +1,72 @@
+{
+  "status": "SUCCESS",
+  "passed_tests": 14,
+  "failed_tests": 0,
+  "total_tests": 14,
+  "pass_rate": "100.0%",
+  "duration_seconds": 43.620155,
+  "backend_status": "RUNNING",
+  "frontend_status": "RUNNING",
+  "timestamp": "2026-06-14T00:36:33.915586",
+  "details": {
+    "passed": [
+      {
+        "test": "Get Restaurants",
+        "message": "Found 8 restaurants | All required fields present"
+      },
+      {
+        "test": "Get Restaurant Details",
+        "message": "Restaurant: Biryanist Palace"
+      },
+      {
+        "test": "Get Menu Items",
+        "message": "Found 3 items"
+      },
+      {
+        "test": "Create Test User",
+        "message": "User ID: 1"
+      },
+      {
+        "test": "Create Order",
+        "message": "Order ID: 4"
+      },
+      {
+        "test": "Get Order",
+        "message": "Status: pending"
+      },
+      {
+        "test": "Update to 'confirmed'",
+        "message": "Status: 200"
+      },
+      {
+        "test": "Update to 'preparing'",
+        "message": "Status: 200"
+      },
+      {
+        "test": "Update to 'packed'",
+        "message": "Status: 200"
+      },
+      {
+        "test": "Update to 'assigned'",
+        "message": "Status: 200"
+      },
+      {
+        "test": "Update to 'picked_up'",
+        "message": "Status: 200"
+      },
+      {
+        "test": "Update to 'in_transit'",
+        "message": "Status: 200"
+      },
+      {
+        "test": "Update to 'delivered'",
+        "message": "Status: 200"
+      },
+      {
+        "test": "Get Order Tracking",
+        "message": "Retrieved 1 tracking entries"
+      }
+    ],
+    "failed": []
+  }
+}

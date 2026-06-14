@@ -1,0 +1,278 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DreamFood API Test Report</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                min-height: 100vh;
+                padding: 40px 20px;
+            }
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                background: white;
+                border-radius: 12px;
+                box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+                overflow: hidden;
+            }
+            header {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                padding: 40px;
+                text-align: center;
+            }
+            h1 {
+                font-size: 2.5em;
+                margin-bottom: 10px;
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            }
+            .timestamp {
+                font-size: 0.9em;
+                opacity: 0.9;
+            }
+            .summary {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 20px;
+                padding: 30px;
+                background: #f8f9fa;
+                border-bottom: 1px solid #dee2e6;
+            }
+            .stat-card {
+                background: white;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                text-align: center;
+            }
+            .stat-number {
+                font-size: 2.5em;
+                font-weight: bold;
+                margin: 10px 0;
+            }
+            .stat-label {
+                color: #666;
+                font-size: 0.9em;
+            }
+            .passed { color: #28a745; }
+            .failed { color: #dc3545; }
+            .total { color: #007bff; }
+            .percentage { color: #17a2b8; }
+            
+            .status {
+                padding: 30px;
+                background: #f8f9fa;
+            }
+            .status-item {
+                display: flex;
+                justify-content: space-between;
+                padding: 10px 0;
+                border-bottom: 1px solid #dee2e6;
+            }
+            .status-label {
+                font-weight: 500;
+                color: #333;
+            }
+            .status-value {
+                color: #666;
+            }
+            
+            .tests-section {
+                padding: 30px;
+            }
+            .test-list {
+                list-style: none;
+            }
+            .test-item {
+                padding: 15px;
+                margin: 10px 0;
+                border-left: 4px solid #dee2e6;
+                background: #f8f9fa;
+                border-radius: 4px;
+            }
+            .test-item.pass {
+                border-left-color: #28a745;
+                background: #d4edda;
+            }
+            .test-item.fail {
+                border-left-color: #dc3545;
+                background: #f8d7da;
+            }
+            .test-icon {
+                font-size: 1.2em;
+                margin-right: 10px;
+            }
+            .test-name {
+                font-weight: 500;
+                color: #333;
+                margin-bottom: 5px;
+            }
+            .test-message {
+                font-size: 0.9em;
+                color: #666;
+                margin-left: 25px;
+            }
+            
+            h2 {
+                color: #333;
+                margin-bottom: 20px;
+                border-bottom: 2px solid #667eea;
+                padding-bottom: 10px;
+            }
+            
+            .footer {
+                text-align: center;
+                padding: 20px;
+                background: #f8f9fa;
+                color: #666;
+                font-size: 0.9em;
+                border-top: 1px solid #dee2e6;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>🍕 DreamFood API Test Report</h1>
+                <div class="timestamp">Generated on 2026-06-14 00:36:33</div>
+            </header>
+            
+            <div class="summary">
+                <div class="stat-card">
+                    <div class="stat-label">Total Tests</div>
+                    <div class="stat-number total">14</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Passed</div>
+                    <div class="stat-number passed">14</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Failed</div>
+                    <div class="stat-number failed">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Pass Rate</div>
+                    <div class="stat-number percentage">100.0%</div>
+                </div>
+            </div>
+            
+            <div class="status">
+                <h2>Service Status</h2>
+                <div class="status-item">
+                    <span class="status-label">Backend API</span>
+                    <span class="status-value">RUNNING</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">Frontend App</span>
+                    <span class="status-value">RUNNING</span>
+                </div>
+            </div>
+            
+            <div class="tests-section">
+                <h2>✅ Passed Tests (14)</h2>
+                <ul class="test-list">
+    
+                    <li class="test-item pass">
+                        <div class="test-icon">✅</div>
+                        <div class="test-name">Get Restaurants</div>
+                        <div class="test-message">Found 8 restaurants | All required fields present</div>
+                    </li>
+        
+                    <li class="test-item pass">
+                        <div class="test-icon">✅</div>
+                        <div class="test-name">Get Restaurant Details</div>
+                        <div class="test-message">Restaurant: Biryanist Palace</div>
+                    </li>
+        
+                    <li class="test-item pass">
+                        <div class="test-icon">✅</div>
+                        <div class="test-name">Get Menu Items</div>
+                        <div class="test-message">Found 3 items</div>
+                    </li>
+        
+                    <li class="test-item pass">
+                        <div class="test-icon">✅</div>
+                        <div class="test-name">Create Test User</div>
+                        <div class="test-message">User ID: 1</div>
+                    </li>
+        
+                    <li class="test-item pass">
+                        <div class="test-icon">✅</div>
+                        <div class="test-name">Create Order</div>
+                        <div class="test-message">Order ID: 4</div>
+                    </li>
+        
+                    <li class="test-item pass">
+                        <div class="test-icon">✅</div>
+                        <div class="test-name">Get Order</div>
+                        <div class="test-message">Status: pending</div>
+                    </li>
+        
+                    <li class="test-item pass">
+                        <div class="test-icon">✅</div>
+                        <div class="test-name">Update to &#x27;confirmed&#x27;</div>
+                        <div class="test-message">Status: 200</div>
+                    </li>
+        
+                    <li class="test-item pass">
+                        <div class="test-icon">✅</div>
+                        <div class="test-name">Update to &#x27;preparing&#x27;</div>
+                        <div class="test-message">Status: 200</div>
+                    </li>
+        
+                    <li class="test-item pass">
+                        <div class="test-icon">✅</div>
+                        <div class="test-name">Update to &#x27;packed&#x27;</div>
+                        <div class="test-message">Status: 200</div>
+                    </li>
+        
+                    <li class="test-item pass">
+                        <div class="test-icon">✅</div>
+                        <div class="test-name">Update to &#x27;assigned&#x27;</div>
+                        <div class="test-message">Status: 200</div>
+                    </li>
+        
+                    <li class="test-item pass">
+                        <div class="test-icon">✅</div>
+                        <div class="test-name">Update to &#x27;picked_up&#x27;</div>
+                        <div class="test-message">Status: 200</div>
+                    </li>
+        
+                    <li class="test-item pass">
+                        <div class="test-icon">✅</div>
+                        <div class="test-name">Update to &#x27;in_transit&#x27;</div>
+                        <div class="test-message">Status: 200</div>
+                    </li>
+        
+                    <li class="test-item pass">
+                        <div class="test-icon">✅</div>
+                        <div class="test-name">Update to &#x27;delivered&#x27;</div>
+                        <div class="test-message">Status: 200</div>
+                    </li>
+        
+                    <li class="test-item pass">
+                        <div class="test-icon">✅</div>
+                        <div class="test-name">Get Order Tracking</div>
+                        <div class="test-message">Retrieved 1 tracking entries</div>
+                    </li>
+        
+                </ul>
+            </div>
+    
+            <div class="footer">
+                <p>DreamFood API Test Suite | Report generated on 2026-06-14 at 00:36:33</p>
+            </div>
+        </div>
+    </body>
+    </html>
+    
