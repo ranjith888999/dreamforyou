@@ -4,14 +4,22 @@ FROM node:18-alpine AS frontend-builder
 
 WORKDIR /app/frontend
 
-# Copy package files
+# Copy only package files first
 COPY frontend/package*.json ./
 
 # Install dependencies (using npm install instead of npm ci for flexibility)
 RUN npm install --legacy-peer-deps
 
-# Copy frontend source
-COPY frontend/ .
+# Copy all frontend source files EXCEPT build artifacts
+COPY frontend/app ./app
+COPY frontend/components ./components
+COPY frontend/lib ./lib
+COPY frontend/store ./store
+COPY frontend/public ./public
+COPY frontend/next.config.js ./
+COPY frontend/tsconfig.json ./
+COPY frontend/tailwind.config.js ./
+COPY frontend/postcss.config.js ./
 
 # Set API URL for production (relative path works for same domain)
 ENV NEXT_PUBLIC_API_URL=/api
