@@ -1,14 +1,14 @@
 # Multi-stage Dockerfile for EasyPanel - Full Stack (Frontend + Backend)
 # Stage 1: Build Next.js Frontend
-FROM node:18-alpine as frontend-builder
+FROM node:18-alpine AS frontend-builder
 
 WORKDIR /app/frontend
 
 # Copy package files
 COPY frontend/package*.json ./
 
-# Install dependencies
-RUN npm ci
+# Install dependencies (using npm install instead of npm ci for flexibility)
+RUN npm install --legacy-peer-deps
 
 # Copy frontend source
 COPY frontend/ .
