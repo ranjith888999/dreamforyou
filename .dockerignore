@@ -1,0 +1,95 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Node
+node_modules
+npm-debug.log
+yarn-error.log
+.npm
+.yarn/cache
+.yarn/unplugged
+
+# Python
+__pycache__
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# IDE
+.vscode
+.idea
+.DS_Store
+*.swp
+*.swo
+*~
+.VSCodeCounter
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Next.js
+.next
+out/
+.cache
+
+# Testing
+.pytest_cache
+htmlcov/
+.coverage
+*.lcov
+.nyc_output
+coverage/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Misc
+.DS_Store
+Thumbs.db
+*.tmp
+.envrc
+
+# Documentation
+README.md
+SETUP_GUIDE.md
+QUICK_REFERENCE.md
+PROJECT_SUMMARY.md
+FILE_INVENTORY.md
+PRODUCTION_ENV_SETUP.md
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Cache
+.cache
+*.cache
