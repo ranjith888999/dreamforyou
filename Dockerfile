@@ -101,17 +101,19 @@ startsecs=5\n\
 priority=997\n\
 ' > /etc/supervisor/conf.d/supervisord.conf
 
-# Create log directories with proper permissions
+# Create log and runtime directories with proper permissions
 RUN mkdir -p /var/log/nginx && \
     mkdir -p /var/run/nginx && \
+    mkdir -p /var/lib/nginx && \
     chmod 755 /var/log && \
     chmod 755 /var/log/nginx && \
-    chmod 755 /var/run
+    chmod 755 /var/run && \
+    chmod 755 /var/lib/nginx
 
-# Create non-root user
+# Create non-root user and set directory ownership
 RUN useradd -m -u 1000 appuser && chown -R appuser:appuser /app && \
     chown -R appuser:appuser /var/log && chown -R appuser:appuser /var/run && \
-    chown -R appuser:appuser /etc/nginx
+    chown -R appuser:appuser /var/lib/nginx && chown -R appuser:appuser /etc/nginx
 
 USER appuser
 
