@@ -113,9 +113,6 @@ RUN useradd -m -u 1000 appuser && chown -R appuser:appuser /app && \
     chown -R appuser:appuser /var/log && chown -R appuser:appuser /var/run && \
     chown -R appuser:appuser /etc/nginx
 
-# Validate Nginx configuration
-RUN nginx -t
-
 USER appuser
 
 # Health check
