@@ -1,0 +1,56 @@
+# Production Environment Variables for DreamFood
+# Deployment: https://bkr-makedreamtrue.nwp2mw.easypanel.host/
+
+# Database Configuration
+# Update with your production PostgreSQL database credentials
+DATABASE_URL=postgresql://username:password@host:5432/dreamfood_prod?sslmode=require
+
+# Redis Configuration
+# Update with your production Redis URL
+REDIS_URL=redis://username:password@redis-host:6379/0
+
+# JWT Configuration
+# IMPORTANT: Change this to a strong random secret key in production
+SECRET_KEY=your-production-secret-key-min-32-chars-change-this
+ALGORITHM=HS256
+ACCESS_TOKEN_EXPIRE_MINUTES=30
+
+# Groq AI Configuration
+# Add your production Groq API key
+GROQ_API_KEY=your-production-groq-api-key
+
+# Google OAuth Configuration
+# Add your production Google OAuth credentials
+GOOGLE_CLIENT_ID=your-production-google-client-id
+GOOGLE_CLIENT_SECRET=your-production-google-client-secret
+
+# Application Settings
+APP_NAME=DreamFood
+DEBUG=False
+ENVIRONMENT=production
+CORS_ORIGINS=https://bkr-makedreamtrue.nwp2mw.easypanel.host,https://www.bkr-makedreamtrue.nwp2mw.easypanel.host
+
+# Frontend URL
+FRONTEND_URL=https://bkr-makedreamtrue.nwp2mw.easypanel.host
+
+# Email Configuration
+# Configure SMTP for production email sending
+SMTP_SERVER=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=your-production-email@gmail.com
+SMTP_PASSWORD=your-production-email-password
+
+# Optional: Additional Production Settings
+LOG_LEVEL=info
+MAX_UPLOAD_SIZE=10485760
+TIMEZONE=UTC
+
+# Rate Limiting
+RATE_LIMIT_ENABLED=true
+RATE_LIMIT_REQUESTS_PER_MINUTE=60
+
+# Session Configuration
+SESSION_TIMEOUT=1800
+COOKIE_SECURE=true
+COOKIE_HTTPONLY=true
+COOKIE_SAMESITE=Lax
