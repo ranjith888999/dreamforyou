@@ -84,6 +84,7 @@ priority=999\n\
 [program:frontend]\n\
 command=npm start\n\
 directory=/app/frontend\n\
+environment=PORT=3000\n\
 autostart=true\n\
 autorestart=true\n\
 stderr_logfile=/var/log/frontend.err.log\n\
