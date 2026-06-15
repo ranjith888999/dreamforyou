@@ -1,7 +1,25 @@
-# Default Dockerfile for EasyPanel - Backend (FastAPI) Application
-# This is the main API service
-# For full stack deployment with frontend, use docker-compose instead
+# Multi-stage Dockerfile for EasyPanel - Full Stack (Frontend + Backend)
+# Stage 1: Build Next.js Frontend
+FROM node:18-alpine as frontend-builder
 
+WORKDIR /app/frontend
+
+# Copy package files
+COPY frontend/package*.json ./
+
+# Install dependencies
+RUN npm ci
+
+# Copy frontend source
+COPY frontend/ .
+
+# Set API URL for production (relative path works for same domain)
+ENV NEXT_PUBLIC_API_URL=/api
+
+# Build frontend
+RUN npm run build
+
+# Stage 2: Python Backend with Frontend Static Files
 FROM python:3.11-slim
 
 WORKDIR /app
@@ -26,6 +44,11 @@ RUN pip install --upgrade pip setuptools wheel && \
 
 # Copy application code
 COPY backend/ .
+
+# Copy built frontend from Stage 1
+COPY --from=frontend-builder /app/frontend/.next /app/frontend/.next
+COPY --from=frontend-builder /app/frontend/public /app/frontend/public
+COPY --from=frontend-builder /app/frontend/package.json /app/frontend/package.json
 
 # Create non-root user for security
 RUN useradd -m -u 1000 appuser && chown -R appuser:appuser /app
