@@ -93,10 +93,20 @@ stderr_logfile=/var/log/nginx/error.log\n\
 stdout_logfile=/var/log/nginx/access.log\n\
 ' > /etc/supervisor/conf.d/supervisord.conf
 
+# Create log directories with proper permissions
+RUN mkdir -p /var/log/nginx && \
+    mkdir -p /var/run/nginx && \
+    chmod 755 /var/log && \
+    chmod 755 /var/log/nginx && \
+    chmod 755 /var/run
+
 # Create non-root user
 RUN useradd -m -u 1000 appuser && chown -R appuser:appuser /app && \
     chown -R appuser:appuser /var/log && chown -R appuser:appuser /var/run && \
     chown -R appuser:appuser /etc/nginx
+
+# Validate Nginx configuration
+RUN nginx -t
 
 USER appuser
 

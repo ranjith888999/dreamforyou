@@ -56,25 +56,17 @@ async def health_check():
 @app.get("/")
 async def root():
     return {
-        "message": "DreamFood API",
+        "message": "DreamFood API - Access the frontend at the root URL or API docs at /docs",
         "version": "0.1.0",
-        "docs": "/docs"
+        "docs": "/docs",
+        "note": "This is the backend API. If you're seeing this, the frontend is not being served properly through Nginx."
     }
 
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(
         "main:app",
-        host="0.0.0.0",
-        port=8000,
-        reload=settings.DEBUG
-    )
-
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(
-        "main:app",
-        host="0.0.0.0",
-        port=8000,
+        host="127.0.0.1",
+        port=8001,
         reload=settings.DEBUG
     )
