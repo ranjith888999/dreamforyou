@@ -68,6 +68,8 @@ COPY nginx.conf /etc/nginx/nginx.conf
 RUN mkdir -p /etc/supervisor/conf.d && \
     echo '[supervisord]\n\
 nodaemon=true\n\
+logfile=/var/log/supervisord.log\n\
+loglevel=debug\n\
 \n\
 [program:backend]\n\
 command=uvicorn main:app --host 127.0.0.1 --port 8001\n\
@@ -76,6 +78,8 @@ autostart=true\n\
 autorestart=true\n\
 stderr_logfile=/var/log/backend.err.log\n\
 stdout_logfile=/var/log/backend.out.log\n\
+startsecs=5\n\
+priority=999\n\
 \n\
 [program:frontend]\n\
 command=npm start\n\
@@ -84,6 +88,8 @@ autostart=true\n\
 autorestart=true\n\
 stderr_logfile=/var/log/frontend.err.log\n\
 stdout_logfile=/var/log/frontend.out.log\n\
+startsecs=10\n\
+priority=998\n\
 \n\
 [program:nginx]\n\
 command=/usr/sbin/nginx -g "daemon off;"\n\
@@ -91,6 +97,8 @@ autostart=true\n\
 autorestart=true\n\
 stderr_logfile=/var/log/nginx/error.log\n\
 stdout_logfile=/var/log/nginx/access.log\n\
+startsecs=5\n\
+priority=997\n\
 ' > /etc/supervisor/conf.d/supervisord.conf
 
 # Create log directories with proper permissions
