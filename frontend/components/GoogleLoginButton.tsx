@@ -5,11 +5,11 @@
 
 'use client'
 
-import { useCallback, useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useAuthStore } from '@/store/authStore'
 import { handleGoogleAuthSuccess } from '@/lib/googleOAuth'
-import { Loader2, Chrome } from 'lucide-react'
+import { Loader2 } from 'lucide-react'
 import dynamic from 'next/dynamic'
 import type { CredentialResponse } from '@react-oauth/google'
 
@@ -36,6 +36,7 @@ export default function GoogleLoginButton({
   const { login } = useAuthStore()
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
+  const googleButtonRef = useRef<HTMLDivElement>(null)
   const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID
 
   const handleSuccess = useCallback(
@@ -89,6 +90,17 @@ export default function GoogleLoginButton({
     onError?.(errorMsg)
   }, [onError])
 
+  const handleButtonClick = useCallback(() => {
+    // Click the hidden Google button to trigger the login flow
+    const googleButton = googleButtonRef.current?.querySelector('div[role="button"]') as HTMLElement
+    if (googleButton) {
+      googleButton.click()
+    } else {
+      console.error('Google button not found')
+      setError('Google login button not ready. Please refresh the page.')
+    }
+  }, [])
+
   // Show message if client ID is not configured
   if (!clientId) {
     return (
@@ -103,7 +115,7 @@ export default function GoogleLoginButton({
   return (
     <div className={className}>
       {/* Hidden Google Login component for OAuth handling */}
-      <div className="hidden">
+      <div ref={googleButtonRef} className="hidden">
         <GoogleLogin
           onSuccess={handleSuccess}
           onError={handleError}
@@ -113,12 +125,9 @@ export default function GoogleLoginButton({
 
       {/* Custom styled button */}
       <button
-        onClick={() => {
-          // Trigger Google login by clicking hidden GoogleLogin button
-          const googleButton = document.querySelector('[data-google-login-button]') as HTMLElement
-          googleButton?.click()
-        }}
+        onClick={handleButtonClick}
         disabled={isLoading}
+        type="button"
         className="w-full px-4 py-3 bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 rounded-xl font-semibold text-slate-700 dark:text-slate-100 flex items-center justify-center gap-3 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all hover:shadow-md hover:border-slate-300 dark:hover:border-slate-600 disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {isLoading ? (
