@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 import logging
+from sqlalchemy import text
 
 from app.config import settings
 from app.database import engine
@@ -14,6 +15,45 @@ logger = logging.getLogger(__name__)
 
 # Create tables
 models.Base.metadata.create_all(bind=engine)
+
+def run_migrations():
+    """Run database migrations for new features"""
+    try:
+        with engine.connect() as conn:
+            # Check if google_id column exists in users table
+            result = conn.execute(text("""
+                SELECT EXISTS (
+                    SELECT 1 FROM information_schema.columns 
+                    WHERE table_name='users' AND column_name='google_id'
+                )
+            """))
+            
+            column_exists = result.scalar()
+            
+            if not column_exists:
+                logger.info("Adding google_id column to users table...")
+                
+                # Add the column
+                conn.execute(text("""
+                    ALTER TABLE users 
+                    ADD COLUMN google_id VARCHAR(255) UNIQUE NULL
+                """))
+                
+                # Create index for faster lookups
+                conn.execute(text("""
+                    CREATE INDEX idx_users_google_id ON users(google_id)
+                """))
+                
+                conn.commit()
+                logger.info("✅ Added google_id column to users table for Google OAuth")
+            else:
+                logger.info("ℹ️ google_id column already exists")
+    except Exception as e:
+        logger.error(f"Migration error: {e}")
+        # Don't fail startup - column might already exist
+
+# Run migrations on startup
+run_migrations()
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
