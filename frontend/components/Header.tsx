@@ -3,12 +3,15 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useAuthStore } from '@/store/authStore'
 import { useUIStore } from '@/store/uiStore'
+import { useCartStore } from '@/store/cartStore'
 import { Menu, X, LogOut, ShoppingCart, User } from 'lucide-react'
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false)
   const { user, logout } = useAuthStore()
   const { uiMode, toggleUIMode } = useUIStore()
+  const { getTotalItems } = useCartStore()
+  const cartCount = getTotalItems()
   const router = useRouter()
 
   const handleLogout = () => {
@@ -122,9 +125,19 @@ export function Header() {
             {/* Cart Icon */}
             <Link
               href="/cart"
-              className="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition"
+              className="relative p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition"
             >
               <ShoppingCart className="w-6 h-6" />
+              {cartCount > 0 && (
+                <span 
+                  className="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center"
+                  style={{
+                    background: uiMode === 'zomato' ? '#E23744' : '#FC8019'
+                  }}
+                >
+                  {cartCount}
+                </span>
+              )}
             </Link>
 
             {/* User Menu */}
