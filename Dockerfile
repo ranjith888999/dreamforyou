@@ -59,7 +59,8 @@ COPY --from=frontend-builder /app/frontend/public /app/frontend/public
 
 # Copy frontend config
 COPY frontend/next.config.js /app/frontend/
-COPY frontend/.env.production /app/frontend/
+# Note: .env.production is not in git (protected by .gitignore)
+# EasyPanel will inject environment variables at runtime
 
 # Copy nginx configuration
 COPY nginx.conf /etc/nginx/nginx.conf
