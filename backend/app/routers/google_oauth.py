@@ -158,13 +158,10 @@ def validate_google_token(id_token_str: str) -> dict:
         idinfo = id_token.verify_oauth2_token(
             id_token_str,
             requests.Request(),
-            cid=settings.GOOGLE_CLIENT_ID
+            audience=settings.GOOGLE_CLIENT_ID
         )
         
-        # Verify token was issued for our app
-        if idinfo["aud"] != settings.GOOGLE_CLIENT_ID:
-            raise ValueError("Token was not issued for this app")
-        
+        # Token verification successful - audience is already validated by verify_oauth2_token
         return idinfo
         
     except Exception as e:
