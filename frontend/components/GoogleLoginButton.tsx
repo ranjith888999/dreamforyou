@@ -164,36 +164,3 @@ export default function GoogleLoginButton({
     </div>
   )
 }
-
-    )
-  }
-
-  if (isLoading) {
-    return (
-      <button
-        disabled
-        className={`w-full py-2 px-4 border border-slate-300 dark:border-slate-600 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition font-medium flex items-center justify-center gap-2 disabled:opacity-50 ${className}`}
-      >
-        <Loader2 className="w-5 h-5 animate-spin" />
-        Signing in...
-      </button>
-    )
-  }
-
-  return (
-    <div className={className}>
-      {error && (
-        <div className="mb-3 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-red-600 dark:text-red-400 text-sm">
-          {error}
-        </div>
-      )}
-      <GoogleLogin
-        onSuccess={handleSuccess}
-        onError={handleError}
-        width="100%"
-        text="signin_with"
-        locale="en"
-      />
-    </div>
-  )
-}
