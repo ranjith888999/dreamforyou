@@ -6,7 +6,7 @@ import logging
 from app.config import settings
 from app.database import engine
 from app import models
-from app.routers import auth, restaurants, menu, cart, orders, users, ai, gamification
+from app.routers import auth, restaurants, menu, cart, orders, users, ai, gamification, google_oauth
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
@@ -41,6 +41,7 @@ app.add_middleware(
 
 # Include routers
 app.include_router(auth.router, prefix="/api/auth", tags=["Authentication"])
+app.include_router(google_oauth.router, tags=["Google OAuth"])
 app.include_router(users.router, prefix="/api/users", tags=["Users"])
 app.include_router(restaurants.router, prefix="/api/restaurants", tags=["Restaurants"])
 app.include_router(menu.router, prefix="/api/menu", tags=["Menu"])

@@ -4,6 +4,9 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { Loader2 } from 'lucide-react'
+import GoogleLoginButton from '@/components/GoogleLoginButton'
+import { useAuthStore } from '@/store/authStore'
+import axios from 'axios'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
@@ -11,6 +14,7 @@ export default function LoginPage() {
   const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
+  const { login } = useAuthStore()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -18,13 +22,31 @@ export default function LoginPage() {
     setIsLoading(true)
 
     try {
-      // API call will be implemented
-      console.log('Login attempt:', { email, password })
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000))
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api'
+      const response = await axios.post(
+        `${apiUrl}/auth/login`,
+        { email, password },
+        {
+          headers: { 'Content-Type': 'application/json' },
+        }
+      )
+
+      const { access_token, user } = response.data
+      login(
+        {
+          id: user.id,
+          email: user.email,
+          username: user.username,
+          fullName: user.full_name,
+        },
+        access_token
+      )
       router.push('/home')
     } catch (err) {
-      setError('Invalid email or password')
+      const errorMsg =
+        err instanceof Error ? err.message : 'Invalid email or password'
+      setError(errorMsg)
+      console.error('Login error:', err)
     } finally {
       setIsLoading(false)
     }
@@ -107,10 +129,11 @@ export default function LoginPage() {
             <div className="flex-1 border-t border-slate-300 dark:border-slate-600"></div>
           </div>
 
-          {/* Social Login */}
-          <button className="w-full py-2 px-4 border border-slate-300 dark:border-slate-600 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition font-medium mb-3">
-            Continue with Google
-          </button>
+          {/* Social Login - Google OAuth */}
+          <GoogleLoginButton
+            onError={(err) => setError(err)}
+            className="mb-3"
+          />
 
           <button
             onClick={() => router.push('/auth/guest')}

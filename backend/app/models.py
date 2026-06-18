@@ -10,10 +10,11 @@ class User(Base):
     id = Column(Integer, primary_key=True, index=True)
     email = Column(String, unique=True, index=True)
     username = Column(String, unique=True, index=True)
-    hashed_password = Column(String)
+    hashed_password = Column(String, nullable=True)  # Nullable for OAuth users
     full_name = Column(String)
     profile_picture = Column(String, nullable=True)
     phone = Column(String, nullable=True)
+    google_id = Column(String, unique=True, nullable=True, index=True)  # Google OAuth ID
     is_active = Column(Boolean, default=True)
     auth_provider = Column(String, default="email")  # email, google, guest
     
