@@ -17,10 +17,14 @@ export default function GoogleOAuthProviderComponent({
 }: GoogleOAuthProviderProps) {
   const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID
 
+  // If no client ID (e.g., during build), still render children but without OAuth
+  // This allows Next.js static generation to work
   if (!clientId) {
     console.warn(
-      'NEXT_PUBLIC_GOOGLE_CLIENT_ID environment variable not set. Google OAuth will not work.'
+      'NEXT_PUBLIC_GOOGLE_CLIENT_ID environment variable not set. Google OAuth will not work at runtime.'
     )
+    // Return children without provider during build/development without client ID
+    // The GoogleLoginButton will handle the missing client ID gracefully
     return <>{children}</>
   }
 

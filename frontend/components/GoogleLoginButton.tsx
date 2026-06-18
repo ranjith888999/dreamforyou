@@ -7,10 +7,20 @@
 
 import { useCallback, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { GoogleLogin, CredentialResponse } from '@react-oauth/google'
 import { useAuthStore } from '@/store/authStore'
 import { handleGoogleAuthSuccess } from '@/lib/googleOAuth'
 import { Loader2 } from 'lucide-react'
+
+// Lazy load GoogleLogin to avoid SSR issues
+const GoogleLogin = dynamic(() => 
+  import('@react-oauth/google').then(mod => ({
+    default: mod.GoogleLogin
+  })),
+  { ssr: false }
+)
+
+import dynamic from 'next/dynamic'
+import type { CredentialResponse } from '@react-oauth/google'
 
 interface GoogleLoginButtonProps {
   onSuccess?: () => void
@@ -27,6 +37,7 @@ export default function GoogleLoginButton({
   const { login } = useAuthStore()
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
+  const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID
 
   const handleSuccess = useCallback(
     async (credentialResponse: CredentialResponse) => {
@@ -78,6 +89,17 @@ export default function GoogleLoginButton({
     setError(errorMsg)
     onError?.(errorMsg)
   }, [onError])
+
+  // Show message if client ID is not configured
+  if (!clientId) {
+    return (
+      <div className={`${className}`}>
+        <div className="p-3 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg text-yellow-600 dark:text-yellow-400 text-sm">
+          Google OAuth is not configured. Please set NEXT_PUBLIC_GOOGLE_CLIENT_ID environment variable.
+        </div>
+      </div>
+    )
+  }
 
   if (isLoading) {
     return (

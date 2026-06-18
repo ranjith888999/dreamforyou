@@ -13,8 +13,13 @@ RUN npm install --legacy-peer-deps
 # Copy frontend source (build artifacts excluded by .dockerignore)
 COPY frontend/ .
 
-# Set API URL for production
-ENV NEXT_PUBLIC_API_URL=/api
+# Accept build arguments for environment variables
+ARG NEXT_PUBLIC_API_URL=/api
+ARG NEXT_PUBLIC_GOOGLE_CLIENT_ID
+
+# Set environment variables for Next.js build
+ENV NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
+ENV NEXT_PUBLIC_GOOGLE_CLIENT_ID=${NEXT_PUBLIC_GOOGLE_CLIENT_ID}
 
 # Build frontend
 RUN npm run build

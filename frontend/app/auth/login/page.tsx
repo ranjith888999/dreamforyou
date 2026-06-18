@@ -8,6 +8,10 @@ import GoogleLoginButton from '@/components/GoogleLoginButton'
 import { useAuthStore } from '@/store/authStore'
 import axios from 'axios'
 
+// Make this page dynamic (not statically generated) to avoid build-time issues
+// with Google OAuth components that require client-side initialization
+export const dynamic = 'force-dynamic'
+
 export default function LoginPage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
