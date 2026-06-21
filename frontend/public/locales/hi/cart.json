@@ -1,0 +1,20 @@
+{
+  "your_cart": "आपकी कार्ट",
+  "empty_cart": "आपकी कार्ट खाली है",
+  "items_in_cart": "कार्ट में आइटम",
+  "subtotal": "उप-कुल",
+  "delivery_charge": "डिलीवरी शुल्क",
+  "tax": "कर",
+  "total": "कुल",
+  "proceed_to_checkout": "चेकआउट के लिए आगे बढ़ें",
+  "continue_shopping": "खरीदारी जारी रखें",
+  "remove_item": "आइटम हटाएं",
+  "update_quantity": "मात्रा अपडेट करें",
+  "apply_coupon": "कूपन लागू करें",
+  "coupon_applied": "कूपन सफलतापूर्वक लागू किया गया",
+  "share_cart": "कार्ट साझा करें",
+  "save_for_later": "बाद के लिए सहेजें",
+  "estimated_delivery": "अनुमानित डिलीवरी",
+  "free_delivery": "मुफ्त डिलीवरी",
+  "min_order_value": "न्यूनतम आदेश मूल्य पूरा नहीं हुआ"
+}

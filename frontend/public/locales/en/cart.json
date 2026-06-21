@@ -1,0 +1,20 @@
+{
+  "your_cart": "Your Cart",
+  "empty_cart": "Your cart is empty",
+  "items_in_cart": "items in cart",
+  "subtotal": "Subtotal",
+  "delivery_charge": "Delivery Charge",
+  "tax": "Tax",
+  "total": "Total",
+  "proceed_to_checkout": "Proceed to Checkout",
+  "continue_shopping": "Continue Shopping",
+  "remove_item": "Remove Item",
+  "update_quantity": "Update Quantity",
+  "apply_coupon": "Apply Coupon",
+  "coupon_applied": "Coupon applied successfully",
+  "share_cart": "Share Cart",
+  "save_for_later": "Save for Later",
+  "estimated_delivery": "Estimated Delivery",
+  "free_delivery": "Free Delivery",
+  "min_order_value": "Minimum order value not met"
+}

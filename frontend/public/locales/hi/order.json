@@ -1,0 +1,23 @@
+{
+  "place_order": "आदेश दें",
+  "order_placed": "आदेश सफलतापूर्वक दिया गया!",
+  "order_id": "आदेश आईडी",
+  "order_status": "आदेश स्थिति",
+  "pending": "लंबित",
+  "confirmed": "पुष्टि की गई",
+  "preparing": "तैयारी में",
+  "packed": "पैक किया हुआ",
+  "on_the_way": "रास्ते में",
+  "delivered": "डिलीवर किया गया",
+  "cancelled": "रद्द किया गया",
+  "order_history": "आदेश इतिहास",
+  "track_order": "आदेश ट्रैक करें",
+  "cancel_order": "आदेश रद्द करें",
+  "rating": "रेटिंग",
+  "write_review": "समीक्षा लिखें",
+  "review_submitted": "समीक्षा सफलतापूर्वक सबमिट की गई!",
+  "delivery_address": "डिलीवरी पता",
+  "payment_method": "भुगतान विधि",
+  "order_summary": "आदेश सारांश",
+  "estimated_time": "अनुमानित समय"
+}
