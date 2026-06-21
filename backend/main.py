@@ -7,7 +7,7 @@ from sqlalchemy import text
 from app.config import settings
 from app.database import engine
 from app import models
-from app.routers import auth, restaurants, menu, cart, orders, users, ai, gamification, google_oauth
+from app.routers import auth, restaurants, menu, cart, orders, users, ai, gamification, google_oauth, rewards
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
@@ -89,6 +89,7 @@ app.include_router(cart.router, prefix="/api/cart", tags=["Cart"])
 app.include_router(orders.router, prefix="/api/orders", tags=["Orders"])
 app.include_router(ai.router, prefix="/api/ai", tags=["AI Features"])
 app.include_router(gamification.router, prefix="/api/gamification", tags=["Gamification"])
+app.include_router(rewards.router, tags=["Rewards & Leaderboard"])
 
 @app.get("/api/health")
 async def health_check():
