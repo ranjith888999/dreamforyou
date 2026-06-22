@@ -171,7 +171,7 @@ export default function CartPage() {
                   className="w-full py-3 text-white font-semibold rounded-lg hover:shadow-lg transition mb-3"
                   style={{
                     background:
-                      uiMode === 'zomato'
+                      uiMode === 'cool'
                         ? 'linear-gradient(135deg, #E23744 0%, #D63447 100%)'
                         : 'linear-gradient(135deg, #FC8019 0%, #FD9139 100%)',
                   }}

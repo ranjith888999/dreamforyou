@@ -30,18 +30,18 @@ export function Header() {
               aria-hidden="true"
               style={{
                 backgroundImage:
-                  uiMode === 'zomato'
+                  uiMode === 'cool'
                     ? 'linear-gradient(135deg, #E23744 0%, #D63447 100%)'
                     : 'linear-gradient(135deg, #FC8019 0%, #FD9139 100%)',
               }}
             >
-              🍕
+              🝕
             </span>
             <span
               className="text-2xl font-bold text-transparent bg-clip-text"
               style={{
                 backgroundImage:
-                  uiMode === 'zomato'
+                  uiMode === 'cool'
                     ? 'linear-gradient(135deg, #E23744 0%, #D63447 100%)'
                     : 'linear-gradient(135deg, #FC8019 0%, #FD9139 100%)',
               }}
@@ -60,7 +60,7 @@ export function Header() {
               }}
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLElement).style.color =
-                  uiMode === 'zomato' ? '#E23744' : '#FC8019'
+                  uiMode === 'cool' ? '#E23744' : '#FC8019'
               }}
               onMouseLeave={(e) => {
                 (e.currentTarget as HTMLElement).style.color = 'inherit'
@@ -76,7 +76,7 @@ export function Header() {
               }}
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLElement).style.color =
-                  uiMode === 'zomato' ? '#E23744' : '#FC8019'
+                  uiMode === 'cool' ? '#E23744' : '#FC8019'
               }}
               onMouseLeave={(e) => {
                 (e.currentTarget as HTMLElement).style.color = 'inherit'
@@ -92,7 +92,7 @@ export function Header() {
               }}
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLElement).style.color =
-                  uiMode === 'zomato' ? '#E23744' : '#FC8019'
+                  uiMode === 'cool' ? '#E23744' : '#FC8019'
               }}
               onMouseLeave={(e) => {
                 (e.currentTarget as HTMLElement).style.color = 'inherit'
@@ -108,18 +108,18 @@ export function Header() {
             <button
               onClick={toggleUIMode}
               className={`relative w-24 h-10 rounded-full transition-all duration-300 flex items-center px-1 ${
-                uiMode === 'zomato'
+                uiMode === 'cool'
                   ? 'bg-gradient-to-r from-[#E23744] to-[#D63447]'
                   : 'bg-gradient-to-r from-[#FC8019] to-[#FD9139]'
               }`}
-              aria-label={`Switch to ${uiMode === 'zomato' ? 'Swiggy' : 'Zomato'} UI mode`}
+              aria-label={`Switch to ${uiMode === 'cool' ? 'Warm' : 'Cool'} theme`}
             >
               <div
                 className={`absolute w-8 h-8 rounded-full bg-white shadow-md transition-transform duration-300 flex items-center justify-center text-sm font-bold ${
-                  uiMode === 'zomato' ? 'translate-x-12' : 'translate-x-1'
+                  uiMode === 'cool' ? 'translate-x-12' : 'translate-x-1'
                 }`}
               >
-                {uiMode === 'zomato' ? '🟠' : '🔵'}
+                {uiMode === 'cool' ? '🔴' : '🟠'}
               </div>
             </button>
 
@@ -135,7 +135,7 @@ export function Header() {
                   className="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center"
                   aria-hidden="true"
                   style={{
-                    background: uiMode === 'zomato' ? '#E23744' : '#FC8019'
+                    background: uiMode === 'cool' ? '#E23744' : '#FC8019'
                   }}
                 >
                   {cartCount}
@@ -151,7 +151,7 @@ export function Header() {
                     className="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-semibold"
                     style={{
                       background:
-                        uiMode === 'zomato'
+                        uiMode === 'cool'
                           ? 'linear-gradient(135deg, #E23744 0%, #D63447 100%)'
                           : 'linear-gradient(135deg, #FC8019 0%, #FD9139 100%)',
                     }}
@@ -173,7 +173,7 @@ export function Header() {
                 className="px-4 py-2 text-sm font-medium text-white rounded-lg hover:shadow-lg transition"
                 style={{
                   background:
-                    uiMode === 'zomato'
+                    uiMode === 'cool'
                       ? 'linear-gradient(135deg, #E23744 0%, #D63447 100%)'
                       : 'linear-gradient(135deg, #FC8019 0%, #FD9139 100%)',
                 }}

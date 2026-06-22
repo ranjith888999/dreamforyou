@@ -73,7 +73,7 @@ export default function OrderConfirmationPage() {
               className="px-6 py-2 text-white rounded-lg"
               style={{
                 background:
-                  uiMode === 'zomato'
+                  uiMode === 'cool'
                     ? 'linear-gradient(135deg, #E23744 0%, #D63447 100%)'
                     : 'linear-gradient(135deg, #FC8019 0%, #FD9139 100%)',
               }}
@@ -99,7 +99,7 @@ export default function OrderConfirmationPage() {
                 className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse"
                 style={{
                   background:
-                    uiMode === 'zomato'
+                    uiMode === 'cool'
                       ? 'linear-gradient(135deg, #E23744 0%, #D63447 100%)'
                       : 'linear-gradient(135deg, #FC8019 0%, #FD9139 100%)',
                 }}
@@ -161,7 +161,7 @@ export default function OrderConfirmationPage() {
                         className="w-16 h-16 rounded-lg flex items-center justify-center text-2xl flex-shrink-0"
                         style={{
                           background:
-                            uiMode === 'zomato'
+                            uiMode === 'cool'
                               ? 'linear-gradient(135deg, #E23744 0%, #D63447 100%)'
                               : 'linear-gradient(135deg, #FC8019 0%, #FD9139 100%)',
                         }}
@@ -221,7 +221,7 @@ export default function OrderConfirmationPage() {
                       className="w-full py-3 text-white font-semibold rounded-lg hover:shadow-lg transition flex items-center justify-center gap-2"
                       style={{
                         background:
-                          uiMode === 'zomato'
+                          uiMode === 'cool'
                             ? 'linear-gradient(135deg, #E23744 0%, #D63447 100%)'
                             : 'linear-gradient(135deg, #FC8019 0%, #FD9139 100%)',
                       }}

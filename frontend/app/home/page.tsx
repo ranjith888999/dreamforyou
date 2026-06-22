@@ -89,7 +89,7 @@ export default function HomePage() {
         aria-label="Search restaurants"
         style={{
           background:
-            uiMode === 'zomato'
+            uiMode === 'cool'
               ? 'linear-gradient(135deg, #E23744 0%, #D63447 100%)'
               : 'linear-gradient(135deg, #FC8019 0%, #FD9139 100%)',
         }}
@@ -136,7 +136,7 @@ export default function HomePage() {
                 aria-label="Show all cuisines"
                 className={`px-4 py-2 rounded-full whitespace-nowrap text-sm font-medium transition ${
                   selectedCategory === null
-                    ? uiMode === 'zomato'
+                    ? uiMode === 'cool'
                       ? 'bg-gradient-to-r from-[#E23744] to-[#D63447] text-white'
                       : 'bg-gradient-to-r from-[#FC8019] to-[#FD9139] text-white'
                     : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
@@ -158,7 +158,7 @@ export default function HomePage() {
                     aria-label={`Filter by ${category}`}
                     className={`px-4 py-2 rounded-full whitespace-nowrap text-sm font-medium transition ${
                       selectedCategory === category
-                        ? uiMode === 'zomato'
+                        ? uiMode === 'cool'
                           ? 'bg-gradient-to-r from-[#E23744] to-[#D63447] text-white'
                           : 'bg-gradient-to-r from-[#FC8019] to-[#FD9139] text-white'
                         : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
@@ -200,7 +200,7 @@ export default function HomePage() {
                 setSelectedCategory(null)
               }}
               className={`px-6 py-2 text-white rounded-lg hover:shadow-lg transition ${
-                uiMode === 'zomato'
+                uiMode === 'cool'
                   ? 'bg-gradient-to-r from-[#E23744] to-[#D63447]'
                   : 'bg-gradient-to-r from-[#FC8019] to-[#FD9139]'
               }`}

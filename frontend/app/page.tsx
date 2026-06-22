@@ -41,7 +41,7 @@ const features = [
   { emoji: '🏆', title: 'Earn Coins & Level Up', description: 'Every dream order earns DreamCoins. Maintain streaks, unlock achievements, and climb the global leaderboard.' },
   { emoji: '💰', title: 'Track Your Savings', description: "See exactly how much money you've saved by ordering from your dreams — not your wallet." },
   { emoji: '🔐', title: 'Google Sign-In', description: 'Log in instantly with Google OAuth or continue as a guest. No passwords, no friction.' },
-  { emoji: '🌙', title: 'Dark Mode & Beautiful UI', description: 'Switch between Swiggy-style orange and Zomato-style red themes. Fully responsive with dark mode support.' },
+  { emoji: '🌙', title: 'Dark Mode & Beautiful UI', description: 'Switch between warm orange and cool red themes. Fully responsive with dark mode support.' }
 ]
 
 const cuisines = [
@@ -87,7 +87,7 @@ export default function LandingPage() {
                 <p className="text-xl text-slate-600 dark:text-slate-400 mb-4">
                   {"DreamFood is India's most engaging food delivery simulation. Browse Biryani, Pizza, Burgers and more from top restaurants — experience the complete ordering journey without spending a rupee."}
                 </p>
-                <p className="text-base text-slate-500 dark:text-slate-500 mb-8">Earn DreamCoins, track live delivery, and climb the leaderboard. Like Swiggy & Zomato — but completely free.</p>
+                <p className="text-base text-slate-500 dark:text-slate-500 mb-8">Earn DreamCoins, track live delivery, and climb the leaderboard. Experience the complete food delivery journey — completely free.</p>
                 <div className="flex flex-wrap gap-4">
                   <Link href="/home" className="px-8 py-3 text-lg font-semibold text-white rounded-lg bg-gradient-to-r from-orange-500 to-orange-400 hover:shadow-xl transition">Browse Restaurants Free</Link>
                   <Link href="/auth/guest" className="px-8 py-3 text-lg font-semibold border-2 border-orange-500 text-orange-500 rounded-lg hover:bg-orange-500 hover:text-white transition">Try as Guest</Link>

@@ -49,10 +49,10 @@ const TOTAL_DELIVERY_TIME = TRACKING_STAGES.slice(0, -1).reduce(
   0
 ) // Total: 15 minutes (900 seconds)
 
-type UIMode = 'swiggy' | 'zomato'
+type UIMode = 'warm' | 'cool'
 
-// Swiggy Style Component
-function SwigyUI({
+// Warm Theme Component
+function WarmUI({
   orderId,
   currentStage,
   timeRemaining,
@@ -253,8 +253,8 @@ function SwigyUI({
   )
 }
 
-// Zomato Style Component
-function ZomatoUI({
+// Cool Theme Component
+function CoolUI({
   orderId,
   currentStage,
   timeRemaining,
@@ -452,9 +452,9 @@ export default function OrderTrackingPage() {
   }
 
   // Render based on global UI mode
-  if (uiMode === 'zomato') {
+  if (uiMode === 'cool') {
     return (
-      <ZomatoUI
+      <CoolUI
         orderId={orderId}
         currentStage={currentStage}
         timeRemaining={timeRemaining}
@@ -466,7 +466,7 @@ export default function OrderTrackingPage() {
   }
 
   return (
-    <SwigyUI
+    <WarmUI
       orderId={orderId}
       currentStage={currentStage}
       timeRemaining={timeRemaining}

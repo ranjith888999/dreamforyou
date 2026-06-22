@@ -32,7 +32,7 @@ DreamFood is a full-stack food delivery application built with modern technologi
 ### 1.4 User Profiles
 - **Profile Information**: Display user's name, email, and avatar
 - **Order History**: Users can view their past orders
-- **Preferences**: Store UI mode preferences (Swiggy vs Zomato)
+- **Preferences**: Store UI theme preferences (Warm vs Cool)
 - **Account Management**: View and manage account settings
 
 ---
@@ -126,8 +126,8 @@ DreamFood is a full-stack food delivery application built with modern technologi
 ## 5. UI/UX Features
 
 ### 5.1 Design Themes
-- **Swiggy Theme**: Orange/blue color scheme inspired by Swiggy
-- **Zomato Theme**: Red/pink color scheme inspired by Zomato
+- **Warm Theme**: Vibrant orange/golden color scheme
+- **Cool Theme**: Elegant red/crimson color scheme
 - **Theme Toggle**: Easy switch between themes
 - **Persistent Theme**: Selected theme saved in local storage
 
@@ -401,7 +401,7 @@ DreamFood provides a comprehensive, modern food delivery platform with:
 - ✅ Full restaurant and menu browsing
 - ✅ Shopping cart with persistence
 - ✅ Order placement and tracking
-- ✅ Dual UI themes (Swiggy/Zomato)
+- ✅ Dual UI themes (Warm/Cool)
 - ✅ Dark mode support
 - ✅ Responsive design
 - ✅ Docker-based deployment

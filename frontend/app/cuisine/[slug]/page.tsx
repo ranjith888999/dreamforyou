@@ -53,7 +53,7 @@ export default function CuisinePage() {
   if (!cuisineMeta) {
     return (
       <div className="min-h-screen bg-slate-50 dark:bg-slate-900">
-        <Header />
+        <HeaderClient />
         <main className="max-w-7xl mx-auto px-4 py-16 text-center">
           <h1 className="text-2xl font-bold mb-4 text-slate-700 dark:text-slate-300">
             Cuisine not found
@@ -72,14 +72,14 @@ export default function CuisinePage() {
 
   const gradientStyle = {
     background:
-      uiMode === 'zomato'
+      uiMode === 'cool'
         ? 'linear-gradient(135deg, #E23744 0%, #D63447 100%)'
         : 'linear-gradient(135deg, #FC8019 0%, #FD9139 100%)',
   }
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-slate-50 dark:from-slate-950 dark:to-slate-900">
-      <Header />
+      <HeaderClient />
 
       {/* Hero Banner */}
       <section

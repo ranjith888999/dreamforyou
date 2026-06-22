@@ -9,15 +9,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'swiggy-orange': '#FC8019',
-        'zomato-red': '#E23744',
+        'theme-warm': '#FC8019',
+        'theme-cool': '#E23744',
         primary: '#FC8019',
         secondary: '#E23744',
         accent: '#F7B801',
       },
       backgroundImage: {
-        'gradient-swiggy': 'linear-gradient(135deg, #FC8019 0%, #FD9139 100%)',
-        'gradient-zomato': 'linear-gradient(135deg, #E23744 0%, #D63447 100%)',
+        'gradient-warm': 'linear-gradient(135deg, #FC8019 0%, #FD9139 100%)',
+        'gradient-cool': 'linear-gradient(135deg, #E23744 0%, #D63447 100%)',
         'gradient-primary': 'linear-gradient(135deg, #FC8019 0%, #FD9139 100%)',
         'gradient-secondary': 'linear-gradient(135deg, #E23744 0%, #D63447 100%)',
       },

@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
-export type UIMode = 'swiggy' | 'zomato'
+export type UIMode = 'warm' | 'cool'
 
 interface UIStore {
   uiMode: UIMode
@@ -12,11 +12,11 @@ interface UIStore {
 export const useUIStore = create<UIStore>()(
   persist(
     (set) => ({
-      uiMode: 'swiggy',
+      uiMode: 'warm',
       setUIMode: (mode: UIMode) => set({ uiMode: mode }),
       toggleUIMode: () =>
         set((state) => ({
-          uiMode: state.uiMode === 'swiggy' ? 'zomato' : 'swiggy',
+          uiMode: state.uiMode === 'warm' ? 'cool' : 'warm',
         })),
     }),
     {

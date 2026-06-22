@@ -109,7 +109,7 @@ export default function RestaurantPage() {
               className="px-6 py-2 text-white rounded-lg"
               style={{
                 background:
-                  uiMode === 'zomato'
+                  uiMode === 'cool'
                     ? 'linear-gradient(135deg, #E23744 0%, #D63447 100%)'
                     : 'linear-gradient(135deg, #FC8019 0%, #FD9139 100%)',
               }}
@@ -293,7 +293,7 @@ export default function RestaurantPage() {
               className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-medium text-white transition hover:shadow-lg"
               style={{
                 background:
-                  uiMode === 'zomato'
+                  uiMode === 'cool'
                     ? 'linear-gradient(135deg, #E23744 0%, #D63447 100%)'
                     : 'linear-gradient(135deg, #FC8019 0%, #FD9139 100%)',
               }}

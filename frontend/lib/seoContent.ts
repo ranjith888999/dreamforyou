@@ -149,7 +149,7 @@ export const SECONDARY_KEYWORDS: KeywordEntry[] = [
     notes: 'Brand keyword — ensure title tag and homepage own this',
   },
   {
-    keyword: 'Swiggy alternative',
+    keyword: 'free food delivery app without payment',
     volume: '3.2K',
     difficulty: 35,
     intent: 'C',
@@ -157,12 +157,12 @@ export const SECONDARY_KEYWORDS: KeywordEntry[] = [
     notes: 'High-intent comparison keyword; address it explicitly',
   },
   {
-    keyword: 'Zomato alternative',
+    keyword: 'free food delivery simulation',
     volume: '2.8K',
     difficulty: 33,
     intent: 'C',
     targetPage: '/',
-    notes: 'Pair with Swiggy alternative in landing page copy',
+    notes: 'Focus on free simulation aspect',
   },
   {
     keyword: 'food ordering without payment',
@@ -229,7 +229,7 @@ export const LONG_TAIL_KEYWORDS: KeywordEntry[] = [
     targetPage: '/cuisine/chinese',
   },
   {
-    keyword: 'food delivery app like swiggy zomato free',
+    keyword: 'free food delivery experience without payment',
     volume: '700',
     difficulty: 18,
     intent: 'C',
@@ -542,9 +542,9 @@ export const HOMEPAGE_FAQS: FAQEntry[] = [
       'DreamFood features 10 cuisine categories: Biryani, Pizza, Burger, Chinese, South Indian, North Indian, Ice Cream, Desserts, Snacks, and Healthy Food — with multiple restaurants in each category.',
   },
   {
-    question: 'Is DreamFood similar to Swiggy or Zomato?',
+    question: 'Is DreamFood a real delivery service?',
     answer:
-      'DreamFood is inspired by apps like Swiggy and Zomato but is a simulation, not a real delivery service. It replicates the discovery, browsing, and ordering experience without charging money or connecting to actual delivery partners.',
+      'DreamFood is a food delivery simulation platform that lets you experience the complete ordering journey without any actual charges. It replicates restaurant browsing, menu exploration, cart management, and delivery tracking — purely for entertainment and engagement.',
   },
   {
     question: 'How do I earn DreamCoins?',
@@ -761,7 +761,7 @@ export const HOMEPAGE_CONTENT = {
       },
       {
         heading: 'Real Restaurant Menus & Ratings',
-        body: 'Browse authentic menus with prices, calorie counts, spice levels, and star ratings — just like Swiggy and Zomato.',
+        body: 'Browse authentic menus with prices, calorie counts, spice levels, and star ratings — just like real food delivery apps.',
       },
       {
         heading: 'Live Delivery Simulation',
@@ -773,7 +773,7 @@ export const HOMEPAGE_CONTENT = {
       },
       {
         heading: 'Dark Mode & Beautiful UI',
-        body: 'Switch between Swiggy-style (orange) and Zomato-style (red) themes. Fully responsive, dark mode supported.',
+        body: 'Switch between warm orange and cool red themes. Fully responsive, dark mode supported.',
       },
       {
         heading: 'Google Sign-In Support',
@@ -1065,15 +1065,15 @@ export const BLOG_CLUSTERS: Record<
         description: 'Gamification guide to drive engagement and leaderboard participation.',
       },
       {
-        title: 'DreamFood vs Swiggy vs Zomato: What\'s the Difference?',
-        slug: 'dreamfood-vs-swiggy-vs-zomato',
+        title: 'DreamFood: A Unique Free Food Delivery Experience',
+        slug: 'dreamfood-free-food-delivery-experience',
         cluster: 'app-guides',
-        primaryKeyword: 'dreamfood vs swiggy zomato',
+        primaryKeyword: 'free food delivery simulation app',
         targetPage: '/',
         intent: 'C',
         difficulty: 18,
         wordCount: 1400,
-        description: 'Comparison post targeting users researching food delivery alternatives. High conversion potential.',
+        description: 'Comprehensive guide explaining what makes DreamFood unique. Focus on the simulation and free experience aspects.',
       },
       {
         title: 'Food Delivery Simulation Apps: Everything You Need to Know',
