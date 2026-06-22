@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import { Header } from '@/components/Header'
+import { HeaderClient } from '@/components/HeaderClient'
 import { useCartStore } from '@/store/cartStore'
 import { useUIStore } from '@/store/uiStore'
 import { useRouter } from 'next/navigation'
@@ -48,7 +48,7 @@ export default function OrderConfirmationPage() {
   if (!isHydrated) {
     return (
       <div className="min-h-screen bg-slate-50 dark:bg-slate-900">
-        <Header />
+        <HeaderClient />
         <div className="flex items-center justify-center min-h-[600px]">
           <div className="text-center">
             <div className="w-12 h-12 border-4 border-slate-200 border-t-primary rounded-full animate-spin mx-auto mb-4"></div>
@@ -62,7 +62,7 @@ export default function OrderConfirmationPage() {
   if (items.length === 0) {
     return (
       <div className="min-h-screen bg-slate-50 dark:bg-slate-900">
-        <Header />
+        <HeaderClient />
         <div className="flex items-center justify-center min-h-[600px]">
           <div className="text-center">
             <p className="text-xl text-slate-600 dark:text-slate-400 mb-4">
@@ -88,7 +88,7 @@ export default function OrderConfirmationPage() {
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900">
-      <Header />
+      <HeaderClient />
 
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Processing State */}

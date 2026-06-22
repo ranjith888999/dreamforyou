@@ -10,7 +10,7 @@ from datetime import datetime
 from typing import Dict, List, Any
 
 # Configuration
-BASE_URL = "http://localhost:8000/api"
+BASE_URL = "http://localhost:8001/api"
 TEST_RESULTS = {
     "passed": [],
     "failed": [],
@@ -57,7 +57,7 @@ def test_backend_health():
     print_section("1. BACKEND HEALTH CHECK")
     
     try:
-        response = requests.get(f"{BASE_URL}/")
+        response = requests.get(f"{BASE_URL}/restaurants", params={"skip": 0, "limit": 1})
         if response.status_code == 200:
             print_test("Backend Health", True, f"Status: {response.status_code}")
             return True
@@ -161,7 +161,7 @@ def test_get_menu_items(restaurant_id: int):
     print_section(f"4. GET MENU ITEMS (Restaurant ID: {restaurant_id})")
     
     try:
-        response = requests.get(f"{BASE_URL}/menu", params={"restaurant_id": restaurant_id, "skip": 0, "limit": 100})
+        response = requests.get(f"{BASE_URL}/menu/restaurant/{restaurant_id}", params={"skip": 0, "limit": 100})
         
         if response.status_code == 200:
             menu_items = response.json()
@@ -216,12 +216,22 @@ def test_create_order(menu_items: List[Dict]) -> Dict:
             for item in selected_items
         ]
         
+        subtotal = sum(item["price"] for item in selected_items)
+        delivery_charge = 40.0
+        gst = round(subtotal * 0.05, 2)  # 5% GST
+        total_amount = subtotal + delivery_charge + gst
+        
         payload = {
             "user_id": 1,  # Guest user
             "restaurant_id": selected_items[0].get("restaurant_id", 1),
             "items": order_items,
-            "total_price": sum(item["price"] for item in selected_items),
-            "status": "pending"
+            "subtotal": subtotal,
+            "delivery_charge": delivery_charge,
+            "gst": gst,
+            "total_amount": total_amount,
+            "delivery_address": "123 Main Street, New York, NY 10001",
+            "estimated_delivery_time": 30,
+            "special_instructions": "Please deliver fresh"
         }
         
         response = requests.post(f"{BASE_URL}/orders", json=payload)
@@ -231,7 +241,7 @@ def test_create_order(menu_items: List[Dict]) -> Dict:
             
             print(f"\n{Colors.YELLOW}Order Created:{Colors.END}")
             print(f"  Order ID: {order.get('id')}")
-            print(f"  Total Price: ₹{order.get('total_price')}")
+            print(f"  Total Amount: ₹{order.get('total_amount')}")
             print(f"  Status: {order.get('status')}")
             print(f"  Items: {len(order_items)} items")
             print(f"\n  Items in order:")
@@ -260,7 +270,7 @@ def test_get_order(order_id: int):
         if response.status_code == 200:
             order = response.json()
             
-            required_fields = ["id", "total_price", "status"]
+            required_fields = ["id", "total_amount", "status"]
             missing_fields = [f for f in required_fields if f not in order]
             
             tests_passed = len(missing_fields) == 0
@@ -268,7 +278,7 @@ def test_get_order(order_id: int):
             if tests_passed:
                 print(f"\n{Colors.YELLOW}Order Details:{Colors.END}")
                 print(f"  Order ID: {order.get('id')}")
-                print(f"  Total Price: ₹{order.get('total_price')}")
+                print(f"  Total Amount: ₹{order.get('total_amount')}")
                 print(f"  Status: {order.get('status')}")
                 print(f"  Created: {order.get('created_at', 'N/A')}")
                 
@@ -321,7 +331,7 @@ def test_update_order_status(order_id: int):
     """Test 8: Update order status through tracking"""
     print_section(f"8. UPDATE ORDER STATUS (Order ID: {order_id})")
     
-    stages = ["confirmed", "preparing", "ready_for_pickup", "out_for_delivery", "delivered"]
+    stages = ["confirmed", "preparing", "packed", "in_transit", "delivered"]
     
     for stage in stages:
         try:

@@ -1,0 +1,30 @@
+{
+  "passed": [
+    "Backend Health",
+    "Get Restaurants",
+    "Get Restaurant Details",
+    "Get Menu Items",
+    "Create Order",
+    "Get Order",
+    "Get Order Items",
+    "Update to 'confirmed'",
+    "Update to 'preparing'",
+    "Update to 'packed'",
+    "Update to 'in_transit'",
+    "Update to 'delivered'",
+    "Get Order Tracking"
+  ],
+  "failed": [],
+  "total_tests": 13,
+  "start_time": "2026-06-21 16:24:20.950142",
+  "end_time": "2026-06-21 16:24:51.506292",
+  "summary": {
+    "status": "SUCCESS",
+    "message": "All API endpoints are functioning correctly and the complete user flow works as expected.",
+    "passed_tests": 13,
+    "failed_tests": 0,
+    "total_tests": 13,
+    "pass_rate": "100.0%",
+    "duration_seconds": 30.55615
+  }
+}

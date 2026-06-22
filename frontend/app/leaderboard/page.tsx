@@ -3,8 +3,6 @@
 import React, { useEffect } from 'react';
 import { useRewardStore } from '@/store/rewardStore';
 import { Leaderboard } from '@/components/Leaderboard';
-import { useTranslation } from 'react-i18next';
-import '@/lib/i18nInit'; // Initialize i18n
 
 interface LeaderboardPageProps {
   params: {
@@ -17,7 +15,6 @@ interface LeaderboardPageProps {
  * Full gamification showcase for competitive dopamine engagement
  */
 export default function LeaderboardPage({ params }: LeaderboardPageProps) {
-  const { t } = useTranslation('common');
   const { userRewards, leaderboard, getUserRank, addCoins } = useRewardStore();
 
   useEffect(() => {
@@ -42,7 +39,7 @@ export default function LeaderboardPage({ params }: LeaderboardPageProps) {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-slate-900 dark:text-white mb-4">
-            🏆 {t('Welcome to DreamFood', { defaultValue: 'Leaderboard & Rankings' })}
+            🏆 Leaderboard & Rankings
           </h1>
           <p className="text-lg text-slate-600 dark:text-slate-400">
             Compete with friends, earn coins, and claim your spot at the top!

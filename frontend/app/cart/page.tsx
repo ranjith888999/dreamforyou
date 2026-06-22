@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import { Header } from '@/components/Header'
+import { HeaderClient } from '@/components/HeaderClient'
 import { useCartStore } from '@/store/cartStore'
 import { useUIStore } from '@/store/uiStore'
 import { useRouter } from 'next/navigation'
@@ -26,7 +26,7 @@ export default function CartPage() {
 
   const handlePlaceOrder = () => {
     if (items.length === 0) {
-      alert('Your cart is empty!')
+      router.push('/home')
       return
     }
     router.push('/order/confirmation')
@@ -34,7 +34,7 @@ export default function CartPage() {
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900">
-      <Header />
+      <HeaderClient />
 
       {/* Back Button */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">

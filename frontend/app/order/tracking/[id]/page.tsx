@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { Header } from '@/components/Header'
+import { HeaderClient } from '@/components/HeaderClient'
 import { useParams, useRouter } from 'next/navigation'
 import { useUIStore } from '@/store/uiStore'
 import { Clock, MapPin, Phone, Home } from 'lucide-react'
@@ -69,7 +69,7 @@ function SwigyUI({
 }) {
   return (
     <div className="min-h-screen bg-gradient-to-b from-orange-50 via-orange-50 to-orange-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900">
-      <Header />
+      <HeaderClient />
 
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Header */}
@@ -271,7 +271,7 @@ function ZomatoUI({
 }) {
   return (
     <div className="min-h-screen bg-gradient-to-b from-red-50 to-white dark:from-slate-900 dark:to-slate-800">
-      <Header />
+      <HeaderClient />
 
       <section className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}

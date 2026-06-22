@@ -20,13 +20,14 @@ export function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 bg-white dark:bg-slate-950 shadow-sm border-b border-slate-200 dark:border-slate-800">
+    <header className="sticky top-0 z-50 bg-white dark:bg-slate-950 shadow-sm border-b border-slate-200 dark:border-slate-800" role="banner">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <Link href="/home" className="flex items-center space-x-2">
-            <div
+          <Link href="/home" className="flex items-center space-x-2" aria-label="DreamFood — Go to homepage">
+            <span
               className="text-2xl font-bold text-transparent bg-clip-text"
+              aria-hidden="true"
               style={{
                 backgroundImage:
                   uiMode === 'zomato'
@@ -35,8 +36,8 @@ export function Header() {
               }}
             >
               🍕
-            </div>
-            <h1
+            </span>
+            <span
               className="text-2xl font-bold text-transparent bg-clip-text"
               style={{
                 backgroundImage:
@@ -46,11 +47,11 @@ export function Header() {
               }}
             >
               DreamFood
-            </h1>
+            </span>
           </Link>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-8" aria-label="Main navigation">
             <Link
               href="/home"
               className="text-slate-700 dark:text-slate-300 transition"
@@ -99,7 +100,7 @@ export function Header() {
             >
               Dashboard
             </Link>
-          </div>
+          </nav>
 
           {/* Right Side */}
           <div className="flex items-center space-x-4">
@@ -111,7 +112,7 @@ export function Header() {
                   ? 'bg-gradient-to-r from-[#E23744] to-[#D63447]'
                   : 'bg-gradient-to-r from-[#FC8019] to-[#FD9139]'
               }`}
-              title="Toggle between Swiggy and Zomato UI"
+              aria-label={`Switch to ${uiMode === 'zomato' ? 'Swiggy' : 'Zomato'} UI mode`}
             >
               <div
                 className={`absolute w-8 h-8 rounded-full bg-white shadow-md transition-transform duration-300 flex items-center justify-center text-sm font-bold ${
@@ -126,11 +127,13 @@ export function Header() {
             <Link
               href="/cart"
               className="relative p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition"
+              aria-label={cartCount > 0 ? `View cart — ${cartCount} items` : 'View cart'}
             >
-              <ShoppingCart className="w-6 h-6" />
+              <ShoppingCart className="w-6 h-6" aria-hidden="true" />
               {cartCount > 0 && (
                 <span 
                   className="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center"
+                  aria-hidden="true"
                   style={{
                     background: uiMode === 'zomato' ? '#E23744' : '#FC8019'
                   }}
@@ -183,11 +186,14 @@ export function Header() {
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="md:hidden p-2"
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-menu"
+              aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
             >
               {isMenuOpen ? (
-                <X className="w-6 h-6" />
+                <X className="w-6 h-6" aria-hidden="true" />
               ) : (
-                <Menu className="w-6 h-6" />
+                <Menu className="w-6 h-6" aria-hidden="true" />
               )}
             </button>
           </div>
@@ -195,7 +201,7 @@ export function Header() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden pb-4 space-y-2">
+          <nav id="mobile-menu" className="md:hidden pb-4 space-y-2" aria-label="Mobile navigation">
             <Link
               href="/home"
               className="block px-4 py-2 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg"
@@ -218,11 +224,12 @@ export function Header() {
               <button
                 onClick={handleLogout}
                 className="w-full text-left px-4 py-2 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg"
+                aria-label="Log out of DreamFood"
               >
                 Logout
               </button>
             )}
-          </div>
+          </nav>
         )}
       </div>
     </header>
